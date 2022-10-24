@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/globalStyles.css">
+    <link rel="stylesheet" href="./login.css">
+    <title>Petinfo - Login</title>
+</head>
+
+<body>
+    <main>
+
+        <section class="container_petinfo">
+            <h3 class="tilulo_petinfo">Petinfo</h3>
+            <h3 class="titulo_amor_carinho"><span class="texto_cor_azul">Amor</span> e <span class="texto_cor_azul">carinho</span> por meio do conhecimento</h3>
+            <p class="texto_informacoes">Todas as informações para melhorar a vida do seu pet em um só lugar</p>
+            <div class="container_imagens">
+                <div>
+                    <div class="container__imagem_2pets">
+                        <img src="/src/img-login/Rectangle 2.png" alt="">
+                        <img src="/src/img-login/Rectangle 3.png" alt="">
+                    </div>
+                    <img src="/src/img-login/Rectangle 4.png" alt="">
+                </div>
+                <div><img src="/src/img-login/Rectangle 5.png" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section class="container_login">
+            <h2 class="titulo_login">Login</h2>
+            <form>
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Digite seu email aqui">
+                <label for="senha">Senha</label>
+                <input type="password" id="password" placeholder="Digite sua senha aqui">
+                <p  class="senha_incorreta">A senha está incorreta</p>
+                <button class="bt_login" type="submit">Acessar</button>
+            </form>
+            <p class="texto_nao_possui_conta">Ainda não possui conta?</p>
+            <p class="texto_se_cadastrar_rapidamente">Clicando no botão abaixo, você pode se cadastrar </p>
+            <p class="texto_se_cadastrar_rapidamente texto_centralizado">rapidamente</p>
+            <a href="/index.html"><button class="bt_cadastrar_login">Cadastrar</button></a>
+        </section>
+
+    </main>
+    <script type="module" src="/pages/login/login.js"></script>
+</body>
+
+</html>

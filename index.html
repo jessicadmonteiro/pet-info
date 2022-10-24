@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/globalStyles.css">
+    <link rel="stylesheet" href="/pages/cadastro/cadastro.css">
+    <title>Petinfo - Cadastro</title>
+</head>
+<body>
+    <main>
+        <section class="container_cadastro">
+            <div class="container_tituloCadastro_btVoltar">
+                <h2 class="titulo_cadastro">Cadastro</h2>
+                <a href="/pages/login/login.html"><button class="bt_valtar">Voltar para o login</button></a>
+            </div>
+            <form>
+                <label for="usuario" >Usuário</label>
+                <input type="text" id="username" placeholder="Digite seu usuário aqui">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Digite seu email aqui">
+                <label for="link">Link da foto do perfil</label>
+                <input type="text" id="avatar" placeholder="Insira o link aqui">
+                <label for="senha">Senha</label>
+                <input type="password" id="password" placeholder="Digite sua senha aqui">
+                <button class="bt_cadastrar" type="submit">Cadastrar</button>
+            </form>
+            <a href="/pages/login/login.html"><button class="bt_voltarLogin">Voltar para o login</button></a>
+        </section>
+
+        <section class="container_petinfo">
+            <h3 class="tilulo_petinfo">Petinfo</h3>
+            <h3 class="titulo_amor_carinho texto_cor_azul">Ooooooba!</h3>
+            <p class="texto_informacoes">Agora vamos poder contribuir para o bem estar do seu pet por meio do conhecimento</p>
+            <div class="container_imagens">
+                <div><img src="/src/img-cadastro/Rectangle 2.png" alt="Gato">
+                </div>
+                <div>
+                    <div class="container__imagem_2pets">
+                        <img src="/src/img-cadastro/Rectangle 3.png" alt="Gato">
+                        <img src="/src/img-cadastro/Rectangle 5.png" alt="Cachorro">
+                    </div>
+                    <img src="/src/img-cadastro/Rectangle 4.png" alt="Gato">
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <div class="inserirToast"></div>
+    <div class="container_toast">
+        <div class="container_imgCheck_h3">
+            <button class="bt_imagem"></button>
+            <h3 class="titulo">Sua conta foi criada com sucesso!</h3>
+        </div>
+        <p class="texto">Agora você pode acessar os conteúdos utilizando seu usuário e senha na página de login: <a href="/pages/login/login.html">Acessar página de login</a></p>
+    </div>
+    <script type="module" src="./pages/cadastro/cadastro.js"></script>
+</body>
+</html>

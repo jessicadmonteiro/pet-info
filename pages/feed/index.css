@@ -1,0 +1,224 @@
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0%;
+    font-family: var(--font-family);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+}
+
+.conteiner_cor_fundo {
+    width: 100%;
+    height: 100hv;
+    background-color: #fcfeff;
+}
+
+.container_cabecalho {
+    width: 50%;
+    margin: auto;
+    padding-top: 50px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.container_bt_img {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.titulo_header {
+    font-weight: 500;
+    font-size: 24px;
+    color: #212529;
+}
+
+.bt_criarPublicacao {
+    width: 152px;
+    height: 38px;
+    background: #364FC7;
+    border: 1px solid #364FC7;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: var(--font-family);
+    color: #FCFEFF;
+}
+
+.container_titulo_feed {
+    /* position: fixed;
+    top: 150px; */
+    width: 100%;
+    height: 64px;
+    margin-top: 50px;
+    display: flex;
+    align-content: center;
+    font-weight: 500;
+    font-size: 20px;
+    background: #F8F9FA;
+}
+
+.titulo_feed {
+    width: 50%;
+    margin: auto;
+    font-weight: 500;
+    font-size: 20px;
+    color: #212529;
+}
+
+ul {
+    list-style: none;
+    margin-top: 300px;
+}
+.container_posts {
+    list-style: none;
+    margin-top: 300px;
+}
+
+.container_card {
+    width: 50%;
+    margin: auto;
+}
+
+.cabecalho_postFeed {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.container_img_usario_data {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.imgUsuario{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.imgUsuario_feed {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.nome_usuario {
+    font-weight: 500;
+    font-size: 14px;
+    color: #212529;
+    
+    
+}
+
+.data_post {
+    font-weight: 500;
+    font-size: 14px;
+    color: #868E96;
+}
+
+.container_bt_editar_excluir {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bt_editar {
+    width: 60px;
+    height: 32px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #212529;
+    background-color: transparent;
+    border: 1px solid #E9ECEF;
+    border-radius: 4px;
+    font-family: var(--font-family);
+}
+
+.bt_excluir {
+    width: 60px;
+    height: 32px;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: var(--font-family);
+    color: #868E96;
+    background: #F1F3F5;
+    border: 1px solid #F1F3F5;
+
+}
+
+.tilulo_post {
+    font-weight: 600;
+    font-size: 24px;
+    color: #212529;
+    margin-bottom: 10px;
+}
+
+.descricao_post {
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.container_tagA {
+    margin-top: 20px;
+}
+
+.acessar_publicacao {
+    font-weight: 500;
+    font-size: 16px;
+    color: #364FC7;
+    text-decoration: none;
+}
+
+/*container de aviso de post deletado*/
+.container {
+    width: 441px;
+    height: 125px;
+    padding: 20px;
+    background: #FCFEFF;
+    box-shadow: 0px 4px 30px -12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin: 50px;
+    margin-left: 850px;
+}
+
+.bt_imagem {
+    width: 24px;
+    height: 24px;
+    background-image: url(/src/img-cadastro/check.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #087F5B;
+    border: transparent;
+    border-radius: 50%;
+}
+
+.container_img_titulo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.titulo {
+    font-weight: 500;
+    font-size: 18px;
+    color: #087F5B;
+
+}
+
+.texto {
+    font-weight: 400;
+    font-size: 16px;
+    color: #343A40;
+}
+

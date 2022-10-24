@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/globalStyles.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Petinfo - Feed</title>
+</head>
+<body>
+    <main>
+         <section>
+            <ul class = "container_posts">
+            </ul>
+        </section> 
+
+    </main>
+
+    <div class="fundo_modal" style="display: none;">
+        <aside class="container_modal">
+            <div class="cabecalho_modal_post">
+                <div class="container_img_usario_data">
+                    <img src="/src/img-feed/Ellipse 2 (1).png" alt="">
+                    <h3 class="nome_usuario">Camila Lima</h3>
+                    <p class="data_post">| <span>Março de 2022</span></p>
+                </div>
+                <div>
+                    <button class="bt_modal_post">X</button>
+                </div>
+            </div>
+            <h3 class="titulo_modal_post">Outubro Rosa: Detalhes sobre a importância da prevenção do câncer de mama em cadelas e gatas</h3>
+            <p class="descricao_modal_post">Assim como em humanos, cadelas e gatas também podem desenvolver câncer de mama. Ainda hoje, para ambas as espécies, o câncer de mama tem maior incidência. Mesmo com a evolução da medicina veterinária e da oncologia, o câncer de mama muitas vezes não tem cura, sendo o tratamento paliativo uma alternativa para dar conforto às fêmeas. 
+            <br>
+            Por isso, a conscientização sobre o tema é uma das ações de prevenção de maior importância, principalmente para a campanha do outubro rosa. Então como podemos ajudar a prevenir o câncer de mama em cadelas e gatas?
+            <br>  
+            Assim como outros tipos de câncer, o câncer de mama pode ter inúmeras causas. Entre  as mais comuns, temos fatores genéticos, como predisposição de algumas raças, exposição à poluição, tabagismo passivo, obesidade, além do fato de os pets estarem vivendo mais, o que também pode causar maior chances de tumores. No caso do câncer de mama, a influência hormonal é um dos fatores de maior contribuição para o aparecimento dessa doença.</p>
+        </aside>
+    </div>
+
+    <div class="container" style="display: none;">
+        <div class="container_img_titulo">
+            <button class="bt_imagem"></button>
+            <h2 class="titulo">Post deletado com sucesso!</h2>
+        </div>
+        <p class="texto">O post selecionado para exlusão foi deletado, a partir de agora não aparecerá no seu feed </p>
+    </div>
+    <script type="module" src="/pages/feed/feed.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FCFEFF;
+    font-family: var(--font-family);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 70%;
+    height: 60%;
+    
+}
+
+section {
+    width: 40%;
+    min-width: 400px;
+}
+
+.container_petinfo{
+    margin-top: 50px;
+}
+.container_login {
+    height: 500px;
+    border: 1px solid #E9ECEF;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo_login {
+    font-size: 20px;
+    font-weight: 500;
+    color: #212529;
+    margin-left: -280px;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    margin-left: -280px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+input {
+    width: 321px;
+    height: 34px;
+    background: #F8F9FA;
+    border: 1px solid #E9ECEF;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+}
+
+.senha_incorreta {
+    font-weight: 400;
+    font-size: 14px;
+    color: #C73650;
+    margin-left: -180px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.bt_login {
+    width: 321px;
+    height: 35px;
+    background: #364FC7;
+    border: 1px solid #364FC7;
+    border-radius: 4px;
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FCFEFF;
+    margin-bottom: 20px;
+}
+
+.texto_nao_possui_conta {
+    font-weight: 500;
+    font-size: 14px;
+    color: #212529;
+    margin-bottom: 20px;
+}
+
+.texto_se_cadastrar_rapidamente {
+    width: 321px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #495057;
+}
+
+.texto_centralizado {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bt_cadastrar_login {
+    width: 321px;
+    height: 35px;
+    font-weight: 500;
+    font-size: 16px;
+    font-family: var(--font-family);
+    background-color: transparent;
+    border: 1px solid #E9ECEF;
+    border-radius: 4px;
+    color: #212529;
+}
+
+
+.tilulo_petinfo {
+    color: #212529;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.titulo_amor_carinho {
+    width: 391px;
+    font-size: 32px;
+    color: #212529;
+    margin-bottom: 25px;
+}
+
+.texto_cor_azul {
+    color: #364FC7;
+}
+
+.texto_informacoes {
+    width: 320px;
+    font-size: 16px;
+    color: #495057;
+    margin-bottom: 20px;
+}
+
+.container_imagens {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.container__imagem_2pets {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
