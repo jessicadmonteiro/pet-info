@@ -38,10 +38,10 @@ const modalPublicacao = () => {
 
         await criarNovoPost(novoPost)
         await renderizarTodosPost()
-        
-        const modal = document.querySelector(".fundo_modal")
-        modal.remove()
 
+        // const modal = document.querySelector(".fundo_modal")
+        // modal.remove()
+       
      })
      return formulario
 }
@@ -111,11 +111,32 @@ const deletarPost = ({id}) => {
          await excluirPost(id)
          await renderizarTodosPost()
 
-         const modal = document.querySelector(".fundo_modal")
-         modal.remove()
+        //  const modal = document.querySelector(".fundo_modal")
+        //  modal.remove()
+        
 
      })
      return formulario
 }
 
-export {modalPublicacao, editarPost, deletarPost}
+
+const abrirPost = (imagem, nome, titulo, data, conteudo) => {
+
+    const formulario = document.createElement("form")
+
+     formulario.insertAdjacentHTML( "beforeend", 
+     `   
+            <div class="container_img_usario_data">
+                <img class="imgUsuario_feed" src="${imagem}" alt="">
+                <h3 class="nome_usuario">${nome}</h3>
+                <p class="data_post">| <span>${data}</span></p>
+            </div>
+            <h3 class="titulo_modal_post">${titulo}</h3>
+            <p class="descricao_modal_post">${conteudo}</p>
+     `
+     )
+
+     return formulario
+}
+
+export {modalPublicacao, editarPost, deletarPost, abrirPost}

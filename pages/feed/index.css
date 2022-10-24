@@ -168,7 +168,7 @@ ul {
     margin-bottom: 10px;
 }
 
-.container_tagA {
+.container_tagBt {
     margin-top: 20px;
 }
 
@@ -176,7 +176,8 @@ ul {
     font-weight: 500;
     font-size: 16px;
     color: #364FC7;
-    text-decoration: none;
+    border: none;
+    background-color: transparent;
 }
 
 /*container de aviso de post deletado*/

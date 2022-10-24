@@ -1,6 +1,6 @@
 import { getPerfil } from "../../scripts/api.js";
 import { posts } from "../../scripts/api.js";
-import { editarPost, modalPublicacao, deletarPost } from "../../scripts/formulario.js";
+import { editarPost, modalPublicacao, deletarPost, abrirPost} from "../../scripts/formulario.js";
 import { abirModal } from "../../scripts/modal.js";
 
 
@@ -65,8 +65,8 @@ async function renderizarTodosPost() {
            let tagBtExcluir     = document.createElement("button")
            let tagH2            = document.createElement("h2")
            let tagPConteudoPost = document.createElement("p")
-           let tagPA            = document.createElement("p")
-           let tagA             = document.createElement("a")
+           let tagPbt           = document.createElement("p")
+           let tagBtAcessar     = document.createElement("button")
 
            tagLi.classList.add("container_card")
            tagDiv.classList.add("cabecalho_postFeed")
@@ -79,8 +79,8 @@ async function renderizarTodosPost() {
            tagBtExcluir.classList.add("bt_excluir")
            tagH2.classList.add("tilulo_post")
            tagPConteudoPost.classList.add("descricao_post")
-           tagPA.classList.add("container_tagA")
-           tagA.classList.add("acessar_publicacao")
+           tagPbt.classList.add("container_tagBt")
+           tagBtAcessar.classList.add("acessar_publicacao")
 
            tagImg.src             = imagem
            tagH3.innerText        = nome
@@ -104,13 +104,22 @@ async function renderizarTodosPost() {
 
            tagH2.innerText        = titulo
            tagPConteudoPost       = conteudo
-           tagA.innerText         = "Acessar publicação"
+           tagBtAcessar.innerText = "Acessar publicação"
 
-           tagLi.append(tagDiv, tagH2, tagPConteudoPost, tagPA)
+           tagBtAcessar.addEventListener("click", () =>{
+
+            const acessarPost = abrirPost(imagem, nome, titulo, data, conteudo)
+            
+            abirModal(acessarPost)
+            
+           })
+
+
+           tagLi.append(tagDiv, tagH2, tagPConteudoPost, tagPbt)
            tagDiv.append(tagDivContainer, tagDivBt)
            tagDivContainer.append(tagImg, tagH3, tagSpan, tagP)
            tagDivBt.append(tagBtEditar, tagBtExcluir)
-           tagPA.appendChild(tagA)
+           tagPbt.appendChild(tagBtAcessar)
         
            containerReceberPosts.append(tagLi)
        });

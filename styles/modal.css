@@ -35,9 +35,10 @@
     height: 32px;
 }
 
-.titulo_modal {
+.titulo_modal_post {
     width: 90%;
     color: #212529;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
