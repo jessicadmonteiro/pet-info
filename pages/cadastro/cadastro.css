@@ -225,7 +225,7 @@ input::placeholder {
 .bt_imagem {
     width: 24px;
     height: 24px;
-    background-image: url(/src/img-cadastro/check.png);
+    background-image: url("/assets/img-cadastro/check.png");
     background-repeat: no-repeat;
     background-position: center;
     background-color: #087F5B;

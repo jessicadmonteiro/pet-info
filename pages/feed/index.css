@@ -50,8 +50,6 @@ header {
 }
 
 .container_titulo_feed {
-    /* position: fixed;
-    top: 150px; */
     width: 100%;
     height: 64px;
     margin-top: 50px;
@@ -180,7 +178,6 @@ ul {
     background-color: transparent;
 }
 
-/*container de aviso de post deletado*/
 .container {
     flex-direction: column;
     position: fixed;
@@ -202,13 +199,13 @@ ul {
     0%   {right: 30px; bottom: -100px}
     25%  {right: 30px; bottom: 10px}
     50%  {right: 30px; bottom: 10px} 
-    100% {right: 30px; bottom: -155px}
+    100% {right: 30px; bottom: -175px}
 }
 
 .bt_imagem {
     width: 24px;
     height: 24px;
-    background-image: url(/src/img-cadastro/check.png);
+    background-image: url("/assets/img-cadastro/check.png");
     background-repeat: no-repeat;
     background-position: center;
     background-color: #087F5B;
@@ -275,7 +272,7 @@ ul {
 .bt_seta {
     width: 18px;
     height: 21px;
-    background-image: url("/src/img-feed/sign-out-alt.png");
+    background-image: url("/assets/img-feed/sign-out-alt.png");
     background-repeat: no-repeat;
     background-position: center;
     border: transparent;
@@ -283,7 +280,7 @@ ul {
 }
 
 .bt_seta:hover {
-    background-image: url("/src/img-feed/sign-out-alt2.png");
+    background-image: url("/assets/img-feed/sign-out-alt2.png");
     background-repeat: no-repeat;
     background-position: center;
 }

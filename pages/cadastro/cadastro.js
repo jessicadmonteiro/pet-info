@@ -12,7 +12,7 @@ const eventoCadastro = () => {
         botao.innerHTML = ""
         
         const img = document.createElement("img")
-        img.src = "/src/img-login/spinner.svg"
+        img.src = "/assets/img-login/spinner.svg"
         img.alt = "spinner"
         img.classList.add("carregando")
         botao.appendChild(img)
