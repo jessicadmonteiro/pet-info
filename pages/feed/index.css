@@ -9,7 +9,6 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-
 }
 
 .conteiner_cor_fundo {
@@ -74,7 +73,10 @@ header {
 ul {
     list-style: none;
     margin-top: 300px;
+    max-height: 700px;
+    overflow: auto;
 }
+
 .container_posts {
     list-style: none;
     margin-top: 300px;
@@ -99,7 +101,7 @@ ul {
     gap: 15px;
 }
 
-.imgUsuario{
+.imgUsuario {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -115,8 +117,6 @@ ul {
     font-weight: 500;
     font-size: 14px;
     color: #212529;
-    
-    
 }
 
 .data_post {
@@ -182,6 +182,10 @@ ul {
 
 /*container de aviso de post deletado*/
 .container {
+    flex-direction: column;
+    position: fixed;
+    right: 30px;
+    bottom: 10px;
     width: 441px;
     height: 125px;
     padding: 20px;
@@ -190,6 +194,15 @@ ul {
     border-radius: 4px;
     margin: 50px;
     margin-left: 850px;
+    animation: toastInt 7000ms ease-in forwards;
+    display: none;
+}
+
+@keyframes toastInt {
+    0%   {right: 30px; bottom: -100px}
+    25%  {right: 30px; bottom: 10px}
+    50%  {right: 30px; bottom: 10px} 
+    100% {right: 30px; bottom: -155px}
 }
 
 .bt_imagem {
@@ -223,3 +236,66 @@ ul {
     color: #343A40;
 }
 
+.container_logout {
+    position: absolute;
+    top: 100px;
+    right: 327px;
+    width: 218px;
+    height: 80px;
+    background: #62bce9;
+    z-index: 1;
+    border-radius:  4px 4px 0 0;
+    background: #FCFEFF;
+    box-shadow: 0px 4px 40px -12px rgba(0, 0, 0, 0.25);
+    display: none;
+}
+
+.hover_logout:hover .container_logout {
+    display: block;
+}
+
+.email_usuario {
+    font-weight: 500;
+    font-size: 16px;
+    color: #212529;
+    padding: 10px;
+}
+
+.container_bt_logout {
+    display: flex;
+    text-align: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.container_bt_logout:hover {
+    background: #F1F3F5;
+}
+
+.bt_seta {
+    width: 18px;
+    height: 21px;
+    background-image: url("/src/img-feed/sign-out-alt.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    border: transparent;
+
+}
+
+.bt_seta:hover {
+    background-image: url("/src/img-feed/sign-out-alt2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.bt_sairdaconta {
+    font-weight: 500;
+    font-size: 14px;
+    color: #868E96;
+    background-color: transparent;
+    border: transparent;
+}
+
+.bt_sairdaconta:hover {
+    color: #212529;
+    font-weight: 600;
+}

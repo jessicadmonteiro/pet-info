@@ -2,7 +2,7 @@ import { getLocalStorage } from "./localStorage.js"
 
 const baseUrl = "http://localhost:3333/"
 
-async function cadastro (body) {
+async function cadastro (body, botao) {
     
     try {
         
@@ -14,25 +14,27 @@ async function cadastro (body) {
             body: JSON.stringify(body)
         })
 
-        console.log(request.ok)
-
         if(request.ok == true){
             const response = await request.json()
 
             const toast = document.querySelector(".container_toast")
             toast.style.display = "flex"
 
+            botao.innerText = "Cadastrar"
+
+        }else {
+            botao.innerText = "Cadastrar"
         }
 
     } catch (err) {
 
-        console.log(err)
-
+        botao.innerText = "Cadastrar"
     }
 }
 
 
-async function login (body) {
+
+async function login (body, botao) {
     try {
         
         const request = await fetch(baseUrl + "login", {
@@ -43,15 +45,19 @@ async function login (body) {
             body: JSON.stringify(body)
         })
 
-        console.log(request)
-
+        
         const response = await request.json()
 
         localStorage.setItem("usuario", JSON.stringify(response))
 
-        if(response.message === "A senha está incorreta" ){
+
+        if(response.message === "A senha está incorreta" || response.message === "Internal server Error" || response.message === "O email está incorreto" ){
+
             const senhaIncorrea = document.querySelector(".senha_incorreta")
             senhaIncorrea.style.display = "flex"
+
+            botao.innerText = "Acessar"
+
         }else {
             const senhaIncorrea = document.querySelector(".senha_incorreta")
             senhaIncorrea.style.display = "none"
@@ -59,11 +65,11 @@ async function login (body) {
             window.location.replace("/pages/feed/index.html")
         }
 
-        console.log(response)
+        
 
     } catch (err) {
 
-        console.log(err)
+        botao.innerText = "Acessar"
 
     } 
 
@@ -81,7 +87,6 @@ async function getPerfil() {
                 "Authorization": `Bearer ${localStorage.token}`
             }
         })
-
         const response = await request.json()
         return response
     }catch(err) {
@@ -111,7 +116,6 @@ async function posts () {
 async function criarNovoPost(body) {
 
     const localStorage = getLocalStorage()
-    console.log(localStorage)
 
     try {
         const request = await fetch (baseUrl + "posts/create", {
@@ -123,7 +127,6 @@ async function criarNovoPost(body) {
             body: JSON.stringify(body)
         })
 
-        console.log(request)
         const response = await request.json()
         return response
     }catch(err) {
@@ -131,11 +134,28 @@ async function criarNovoPost(body) {
     }
 }
 
+async function criarPerfilUsuario() {
+    const localStorage = getLocalStorage()
+    
+    try {
+        const request = await fetch (baseUrl + "users/profile",{
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            },
+        })
+
+        const response = await request.json()
+        return response
+    }catch(err) {
+        console.log(err)
+    }
+
+}
 
 async function atualizarPost(body, idUsuario) {
 
     const localStorage = getLocalStorage()
-    console.log(localStorage)
 
     try {
         const request = await fetch (baseUrl + "posts/" + idUsuario, { 
@@ -147,7 +167,6 @@ async function atualizarPost(body, idUsuario) {
             body: JSON.stringify(body)
         })
 
-        console.log(request)
         const response = await request.json()
         return response
     }catch(err) {
@@ -168,7 +187,6 @@ async function excluirPost(id) {
             },
         })
 
-        console.log(request)
         const response = await request.json()
         return response
     }catch(err) {
@@ -183,5 +201,6 @@ export {
     posts,
     criarNovoPost,
     atualizarPost, 
-    excluirPost
+    excluirPost,
+    criarPerfilUsuario
 }

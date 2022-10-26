@@ -39,8 +39,8 @@ const modalPublicacao = () => {
         await criarNovoPost(novoPost)
         await renderizarTodosPost()
 
-        // const modal = document.querySelector(".fundo_modal")
-        // modal.remove()
+        const modal = document.querySelector(".fundo_modal")
+        modal.remove()
        
      })
      return formulario
@@ -84,6 +84,9 @@ const editarPost = ({title, content, id}) => {
         await atualizarPost(post, id)
         await renderizarTodosPost()
 
+        const modal = document.querySelector(".fundo_modal")
+        modal.remove()
+
      })
      return formulario
 }
@@ -111,9 +114,11 @@ const deletarPost = ({id}) => {
          await excluirPost(id)
          await renderizarTodosPost()
 
-        //  const modal = document.querySelector(".fundo_modal")
-        //  modal.remove()
-        
+         const modal = document.querySelector(".fundo_modal")
+         modal.remove()
+
+         const toast = document.querySelector(".container")
+         toast.style.display = "flex"
 
      })
      return formulario

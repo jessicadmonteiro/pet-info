@@ -1,4 +1,4 @@
-import { getPerfil } from "../../scripts/api.js";
+import { criarNovoPost, getPerfil, criarPerfilUsuario } from "../../scripts/api.js";
 import { posts } from "../../scripts/api.js";
 import { editarPost, modalPublicacao, deletarPost, abrirPost} from "../../scripts/formulario.js";
 import { abirModal } from "../../scripts/modal.js";
@@ -8,14 +8,23 @@ const detalhesUsuario = await getPerfil()
 
 async function header() {
     
-    function cabecalho(imagem) {
+    function cabecalho(imagem, email) {
         return `
         <div class="conteiner_cor_fundo">
                 <div class="container_cabecalho">
                     <h3 class="titulo_header">Petinfo</h3>
                     <div class="container_bt_img">
                         <button class="bt_criarPublicacao">Criar publicação</button>
-                        <img class="imgUsuario" src="${imagem}" alt="">
+                        <div class="hover_logout">
+                            <img class="imgUsuario" src="${imagem}" alt="">
+                            <div class="container_logout">
+                                <p class="email_usuario">${email}</p>
+                                <div class="container_bt_logout">
+                                    <button class="bt_seta"></button>
+                                    <button class="bt_sairdaconta">Sair da conta</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="container_titulo_feed">
@@ -27,23 +36,40 @@ async function header() {
         "beforeend",
         `
         <header>
-            ${cabecalho(detalhesUsuario.avatar)}
+            ${cabecalho(detalhesUsuario.avatar, detalhesUsuario.email)}
         </header>
         `
     )
+    
+    const botao = document.querySelector(".bt_sairdaconta")
+
+    botao.addEventListener("click", () => {
+        window.location.replace("/pages/login/login.html")
+        localStorage.removeItem("usuario")
+    })
+
+    const botaoSeta = document.querySelector(".bt_seta")
+    botaoSeta.addEventListener("click", () => {
+        window.location.replace("/pages/login/login.html")
+        localStorage.removeItem("usuario")
+    })
 }
 header()
 
-const publicacao = await posts()
-console.log(publicacao)
+
 
 async function renderizarTodosPost() {
+    const publicacao = await posts()
+
+    const usuarioLogado = await criarPerfilUsuario()
     
     function listaPosts (arr) {
         let containerReceberPosts = document.querySelector(".container_posts")
         containerReceberPosts.innerHTML = ""
 
-        arr.forEach(element => {
+        let novoArray = arr.reverse()
+
+        novoArray.forEach(element => {
     
            let imagem    = element.user.avatar
            let nome      = element.user.username
@@ -60,9 +86,6 @@ async function renderizarTodosPost() {
            let tagH3            = document.createElement("h3")
            let tagSpan          = document.createElement("span")
            let tagP             = document.createElement("p")
-           let tagDivBt         = document.createElement("div")
-           let tagBtEditar      = document.createElement("button")
-           let tagBtExcluir     = document.createElement("button")
            let tagH2            = document.createElement("h2")
            let tagPConteudoPost = document.createElement("p")
            let tagPbt           = document.createElement("p")
@@ -74,53 +97,67 @@ async function renderizarTodosPost() {
            tagImg.classList.add("imgUsuario_feed")
            tagH3.classList.add("nome_usuario")
            tagP.classList.add("data_post")
-           tagDivBt.classList.add("container_bt_editar_excluir")
-           tagBtEditar.classList.add("bt_editar")
-           tagBtExcluir.classList.add("bt_excluir")
            tagH2.classList.add("tilulo_post")
            tagPConteudoPost.classList.add("descricao_post")
            tagPbt.classList.add("container_tagBt")
            tagBtAcessar.classList.add("acessar_publicacao")
 
+           tagDiv.append(tagDivContainer)
+
+
+           if(element.user.id === usuarioLogado.id){
+
+            let tagDivBt         = document.createElement("div")
+            let tagBtEditar      = document.createElement("button")
+            let tagBtExcluir     = document.createElement("button")
+
+            tagDivBt.classList.add("container_bt_editar_excluir")
+            tagBtEditar.classList.add("bt_editar")
+            tagBtExcluir.classList.add("bt_excluir")
+
+            tagBtEditar.innerText  = "Editar"
+
+            tagBtEditar.addEventListener("click", () =>{
+
+                const editarPublicacao = editarPost(element)
+                abirModal(editarPublicacao)
+
+            })
+
+            tagBtExcluir.innerText = "Excluir"
+
+            tagBtExcluir.addEventListener("click", () => {
+                const excluirPublicacao =  deletarPost(element)
+                abirModal(excluirPublicacao)
+            })
+
+            tagDivBt.append(tagBtEditar, tagBtExcluir)
+            tagDiv.append(tagDivBt)
+          }
+           
+
            tagImg.src             = imagem
            tagH3.innerText        = nome
            tagSpan.innerText      = "|"
            tagP.innerText         = data
-           tagBtEditar.innerText  = "Editar"
 
-           tagBtEditar.addEventListener("click", () =>{
-
-            const editarPublicacao = editarPost(element)
-            abirModal(editarPublicacao)
-
-           })
-
-           tagBtExcluir.innerText = "Excluir"
-
-           tagBtExcluir.addEventListener("click", () => {
-                const excluirPublicacao =  deletarPost(element)
-                abirModal(excluirPublicacao)
-           })
-
+        
            tagH2.innerText        = titulo
            tagPConteudoPost       = conteudo
            tagBtAcessar.innerText = "Acessar publicação"
 
            tagBtAcessar.addEventListener("click", () =>{
 
-            const acessarPost = abrirPost(imagem, nome, titulo, data, conteudo)
-            
-            abirModal(acessarPost)
-            
+                const acessarPost = abrirPost(imagem, nome, titulo, data, conteudo)
+                
+                abirModal(acessarPost)
            })
 
 
            tagLi.append(tagDiv, tagH2, tagPConteudoPost, tagPbt)
-           tagDiv.append(tagDivContainer, tagDivBt)
            tagDivContainer.append(tagImg, tagH3, tagSpan, tagP)
-           tagDivBt.append(tagBtEditar, tagBtExcluir)
            tagPbt.appendChild(tagBtAcessar)
-        
+
            containerReceberPosts.append(tagLi)
        });
     }
@@ -136,9 +173,7 @@ function modalCriarPublicacao () {
     BotaocriarPublicacao.addEventListener("click", () => {
          const publicacao = modalPublicacao()
          abirModal(publicacao)
-         
-
-})
+    })
 
 }
 modalCriarPublicacao ()

@@ -8,6 +8,15 @@ const eventoCadastro = () => {
     form.addEventListener("submit", async (event) => {
         event.preventDefault()
 
+        let botao = document.querySelector(".bt_cadastrar")
+        botao.innerHTML = ""
+        
+        const img = document.createElement("img")
+        img.src = "/src/img-login/spinner.svg"
+        img.alt = "spinner"
+        img.classList.add("carregando")
+        botao.appendChild(img)
+
         const body = {}
         elementos.forEach((element) => {
             if(element.tagName == "INPUT" && element.value !== ""){
@@ -15,7 +24,7 @@ const eventoCadastro = () => {
             }
         })
         
-        await cadastro(body)
+        await cadastro(body, botao)
     })
 }
 eventoCadastro()
